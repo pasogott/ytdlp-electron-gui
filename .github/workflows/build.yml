@@ -56,6 +56,15 @@ jobs:
           pattern: macos-*
           merge-multiple: true
       
+      - name: Prepare release files
+        run: |
+          # Finde und kopiere Dateien in dist/ für einfacheren Zugriff
+          mkdir -p dist
+          find . -name "*.dmg" -type f -not -path "./node_modules/*" -exec cp {} dist/ \;
+          find . -name "*.zip" -type f -not -path "./node_modules/*" -not -name "*.tar.gz" -exec cp {} dist/ \;
+          echo "Release files in dist/:"
+          ls -lh dist/
+      
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
