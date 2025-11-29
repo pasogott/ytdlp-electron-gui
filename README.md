@@ -133,6 +133,27 @@ npm run build
 
 Die kompilierten Apps findest du im `dist/` Ordner.
 
+### Automatischer Build mit GitHub Actions
+
+Das Projekt enthält eine GitHub Action (`.github/workflows/build.yml`), die automatisch Builds für alle Plattformen erstellt, wenn ein Tag mit dem Format `v*` gepusht wird.
+
+**Verwendung:**
+```bash
+# Tag erstellen und pushen
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Die GitHub Action erstellt dann automatisch:
+- macOS: `.dmg` und `.zip`
+- Windows: `.exe` (Installer) und `.zip` (Portable)
+- Linux: `.AppImage` und `.deb`
+
+Die Build-Artefakte werden als GitHub Release hochgeladen.
+
+**Manueller Trigger:**
+Du kannst den Workflow auch manuell über die GitHub Actions-Seite auslösen (Workflow Dispatch).
+
 ### Build-Formate
 
 - **macOS:** `.dmg` und `.zip`
