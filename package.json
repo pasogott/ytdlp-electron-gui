@@ -1,0 +1,58 @@
+{
+  "name": "yt-dlp-gui",
+  "version": "1.0.0",
+  "description": "Eine moderne GUI für yt-dlp",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "keywords": [
+    "yt-dlp",
+    "youtube",
+    "downloader",
+    "electron"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.ytdlp.gui",
+    "productName": "yt-dlp GUI",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "files": [
+      "**/*",
+      "!main.py",
+      "!requirements.txt",
+      "!pyproject.toml",
+      "!yt-dlp-gui.spec",
+      "!build/**/*",
+      "!.venv/**/*"
+    ]
+  }
+}
+

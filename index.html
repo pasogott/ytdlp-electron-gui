@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yt-dlp GUI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 yt-dlp Downloader</h1>
+            <p class="subtitle">Lade Videos und Audio von verschiedenen Plattformen herunter</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <label for="url-input" class="label">Video/Playlist URL:</label>
+                <input 
+                    type="text" 
+                    id="url-input" 
+                    class="input" 
+                    placeholder="https://www.youtube.com/watch?v=..."
+                >
+            </div>
+
+            <div class="card">
+                <label for="format-select" class="label">Format:</label>
+                <select id="format-select" class="select">
+                    <option value="video">Video</option>
+                    <option value="audio">Audio</option>
+                </select>
+            </div>
+
+            <div class="card" id="video-quality-card">
+                <label for="quality-select" class="label">Video-Qualität:</label>
+                <select id="quality-select" class="select">
+                    <option value="best">Beste Qualität</option>
+                    <option value="1080p">1080p</option>
+                    <option value="720p">720p</option>
+                    <option value="480p">480p</option>
+                    <option value="360p">360p</option>
+                    <option value="worst">Niedrigste Qualität</option>
+                </select>
+            </div>
+
+            <div class="card" id="audio-quality-card" style="display: none;">
+                <label for="audio-quality-select" class="label">Audio-Qualität:</label>
+                <select id="audio-quality-select" class="select">
+                    <option value="best">Beste Qualität</option>
+                    <option value="320k">320 kbps</option>
+                    <option value="256k">256 kbps</option>
+                    <option value="192k">192 kbps</option>
+                    <option value="128k">128 kbps</option>
+                    <option value="worst">Niedrigste Qualität</option>
+                </select>
+            </div>
+
+            <button id="download-btn" class="btn btn-primary">
+                📥 Download starten
+            </button>
+
+            <div class="card">
+                <label class="label">Status:</label>
+                <div id="log-output" class="log-output"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
+
